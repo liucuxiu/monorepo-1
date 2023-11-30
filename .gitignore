@@ -1,0 +1,7 @@
+node_modules
+
+dist
+.idea
+.nx
+packages/backend/node_modules
+.env
