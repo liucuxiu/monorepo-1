@@ -16,10 +16,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 18.x
 
       - name: Install Dependencies
-        run: npm install -g lerna && lerna bootstrap
+        run: npm install -g lerna
 
       - name: Build and Test
         run: lerna run build && lerna run test
