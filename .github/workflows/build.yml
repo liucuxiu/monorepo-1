@@ -21,16 +21,6 @@ jobs:
         with:
           node-version: 18.x
       - run: npm install
-      - name: Identify Changed Packages
-        id: changed-packages
-        run: echo "::set-output name=packages::$(lerna changed --json)"
-
-      - name: Build Changed Packages
-        run: |
-          changed=$(echo "${{ steps.changed-packages.outputs.packages }}" | jq -r '.[].name')
-                          
-          for pkg in $changed; do
-            lerna run build --scope=$pkg
-          done
+      - run: npx lerna run build
 
 
